@@ -4,7 +4,7 @@
   </h1>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import ErrorAtom from '@/components/atoms/ErrorAtom.vue'
 
 const props = defineProps({

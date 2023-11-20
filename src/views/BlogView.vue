@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import PostsLists from '@/components/organisms/PostsLists.vue'
 </script>
 

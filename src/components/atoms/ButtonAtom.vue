@@ -2,7 +2,7 @@
   <button type="button" @click="submit" class="btn__signin">{{ label }}</button>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const emit = defineEmits(['submit'])
 const submit = () => {
   emit('submit')

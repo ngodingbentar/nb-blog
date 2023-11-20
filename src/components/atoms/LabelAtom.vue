@@ -5,13 +5,13 @@
 </template>
 
 
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
   label: {
     type: String,
     default: ''
   },
-  for: {
+  type: {
     type: String,
     default: 'text'
   },

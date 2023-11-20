@@ -36,8 +36,10 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
+import type { IPost } from '@/types/posts'
+
 const props = defineProps({
   post: {
     type: Object,
@@ -53,12 +55,12 @@ const show = ref(false)
 
 const emit = defineEmits(['show', 'delete'])
 
-function updatePost(data) {
+function updatePost(data: IPost) {
   show.value = false
   emit('show', data)
 }
 
-function deletePost(id) {
+function deletePost(id: string) {
   emit('delete', id)
 }
 

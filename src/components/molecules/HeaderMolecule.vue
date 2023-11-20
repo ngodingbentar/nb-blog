@@ -5,7 +5,7 @@
   </span>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import HeaderAtom from '@/components/atoms/HeaderAtom.vue'
 import ErrorAtom from '@/components/atoms/ErrorAtom.vue'
 

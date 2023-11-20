@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import LabelAtom from '@/components/atoms/LabelAtom.vue'
 import InputAtom from '@/components/atoms/InputAtom.vue'
 
