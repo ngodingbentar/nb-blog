@@ -1,3 +1,6 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
-  }
+  "rewrites": [
+      { "source": "/api/:path(.*)", "destination": "https://reqres.in/api/:path" },
+      { "source": "/(.*)", "destination": "/" }
+  ]
+}
