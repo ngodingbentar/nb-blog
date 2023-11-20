@@ -1,22 +1,19 @@
 <template>
   <div class="post__item">
-      <!-- <div class="w-2/12 sm:w-1/12 md:w-1/12 lg:w-1/12 px-1 text-ellipsis overflow-hidden ...">
-        {{ post.id }}
-      </div> -->
     <div class="w-5/12 items-center flex m-auto text-ellipsis overflow-hidden ...">
       {{ post.name }}
     </div>
     <div class="w-5/12 px-1 ">
-      {{ post.name }}
+      {{ post.description }}
     </div>
     <div class="w-2/12 px-1 justify-end items-end flex">
-      <button class="btn">
+      <button class="btn" @click="emit('show', { ...post, isNew: false })">
         <i class="pi pi-pencil" style="font-size: 1rem; color: blue;"></i>
       </button>
       <button class="ml-4 btn">
         <i class="pi pi-trash" style="font-size: 1rem; color: red;"></i>
       </button>
-      <!-- <button @click="show = !show" class="cursor-pointer text-end justify-end ">
+<!-- <button @click="show = !show" class="cursor-pointer text-end justify-end ">
         <i class="pi pi-bars" style="font-size: 1rem"></i>
       </button>
       <div class="relative">
@@ -36,7 +33,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 
 const props = defineProps({
   post: {
@@ -44,11 +41,12 @@ const props = defineProps({
     default: () => ({
       name: 'name',
       description: 'description',
+      id: 'id'
     })
   }
 })
 
-const show = ref(false)
+const emit = defineEmits(['show', 'delete'])
 
 </script>
 
