@@ -1,10 +1,12 @@
 <template>
-  <div class="bg-red-200">hah</div>
-  <button @click="test">tes</button>
+  <div class="wrapper h-screen bg-red-100">
+    <RouterView />
+  </div>
 </template>
 
 <script setup lang="ts">
 import { reactive } from 'vue'
+import { RouterView } from 'vue-router'
 import { doLogin } from '@/api/users'
 async function test() {
   const payload = reactive({
