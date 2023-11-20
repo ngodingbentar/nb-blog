@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <LabelAtom :label="label" :type="type" />
-    <InputAtom :modelValue="modelValue" :type="type" :disabled="disabled" :placeholder="placeholder" @update:modelValue="$emit('update:modelValue', $event)" />
+  <div class="input__molecule">
+    <div>
+      <LabelAtom :label="label" :type="type" />
+      <InputAtom :modelValue="modelValue" :type="type" :disabled="disabled" :placeholder="placeholder" @update:modelValue="$emit('update:modelValue', $event)" />
+    </div>
   </div>
 </template>
 
@@ -32,3 +34,9 @@ const props = defineProps({
   }
 })
 </script>
+
+<style scoped lang="postcss">
+.input__molecule:first-child {
+  @apply mb-8;
+}
+</style>

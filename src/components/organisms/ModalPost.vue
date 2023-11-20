@@ -2,12 +2,15 @@
   <transition name="modal" mode="out-in">
     <div v-if="show" class="modal__overlay">
       <div class="modal__wrapper">
-        <div class="modal__container">
-          Modal
-          <input v-model="postForm.name" placeholder="Name" />
-          <textarea v-model="postForm.description" placeholder="Description" />
-          <button @click="$emit('close')">close</button>
-          <button @click="submit()">{{ isNew ? 'Add' : 'Update' }}</button>
+        <div class="login__card">
+          <div class="login__form">
+            <InputMolecule label="Name" type="text" v-model="postForm.name" placeholder="Name..." />
+            <InputMolecule label="Description" type="text" v-model="postForm.description" placeholder="Description..." />
+            <div class="modal__footer">
+              <button @click="$emit('close')">close</button>
+              <button @click="submit()">{{ isNew ? 'Add' : 'Update' }}</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -16,6 +19,7 @@
 
 <script setup lang="ts">
 import { reactive, watch } from 'vue'
+import InputMolecule from '@/components/molecules/InputMolecule.vue'
 
 const props = defineProps({
   show: {
@@ -65,5 +69,17 @@ async function submit() {
 
 .modal__container {
   @apply w-1/3 h-1/3 bg-white rounded-lg;
+}
+
+.login__card {
+  @apply w-full bg-gray-800 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:border-gray-700;
+}
+
+.login__form {
+  @apply p-6;
+}
+
+.modal__footer {
+  @apply flex text-white w-full justify-between mt-8;
 }
 </style>

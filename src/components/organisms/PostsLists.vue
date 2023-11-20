@@ -41,8 +41,7 @@ async function init() {
 
 function showModal(data: IPost) {
   show.value = true
-  if(data.isNew)
-    isNew.value = data.isNew
+  isNew.value = data.isNew as boolean
   post.value = data
 }
 

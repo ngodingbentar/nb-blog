@@ -17,11 +17,11 @@ import CardLogin from '@/components/organisms/CardLogin.vue'
 
 <style scoped lang="postcss">
 .wrapper {
-  @apply h-screen bg-slate-900 flex justify-center items-center;
+  @apply bg-slate-900 h-screen flex justify-center items-center;
 }
 
 .login {
-  @apply bg-gray-50 dark:bg-gray-900 max-w-md w-full;
+  @apply  max-w-md w-full;
 }
 
 .login__main {

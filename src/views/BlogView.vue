@@ -16,6 +16,6 @@ import PostsLists from '@/components/organisms/PostsLists.vue'
 
 <style scoped lang="postcss">
 .wrapper {
-  @apply h-screen bg-slate-900 flex justify-center items-center text-white;
+  @apply h-screen flex justify-center items-center text-white;
 }
 </style>

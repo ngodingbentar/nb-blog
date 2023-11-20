@@ -46,7 +46,7 @@ async function submit() {
 
 <style scoped lang="postcss">
 .login__card {
-  @apply w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700;
+  @apply w-full bg-gray-800 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 border border-gray-700;
 }
 
 .login__form {
