@@ -3,6 +3,16 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import BlogViewVue from '@/views/BlogView.vue'
 
+import { storeToRefs } from 'pinia'
+import { useMainStore } from "@/stores/main";
+
+
+function checkIfLogged() {
+  const mainStore = useMainStore();
+  const { token } = storeToRefs(mainStore)
+  console.log('checkIfLogged', token.value)
+  if (!token.value) return '/login';
+}
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,7 +38,8 @@ const router = createRouter({
     {
       path: '/blog',
       name: 'blog',
-      component: BlogViewVue
+      component: BlogViewVue,
+      beforeEnter: [checkIfLogged], 
     },
   ]
 })

@@ -15,10 +15,12 @@
 import { reactive, ref } from 'vue'
 import { doLogin } from '@/api/users'
 import { useRouter } from 'vue-router';
+import { useMainStore } from '@/stores/main'
 import InputMolecule from '@/components/molecules/InputMolecule.vue'
 import ButtonAtom from '@/components/atoms/ButtonAtom.vue'
 import HeaderMolecule from '@/components/molecules/HeaderMolecule.vue'
 
+const mainStore      = useMainStore()
 const router = useRouter()
 const formLogin = reactive({
   email: 'eve.holt@reqres.in',
@@ -31,8 +33,9 @@ async function submit() {
   await doLogin(formLogin)
     .then((res) => {
       localStorage.setItem('token', res.token)
+      mainStore.setToken(res.token)
       error.value = ''
-      router.push('/')
+      router.push('/blog')
     })
     .catch((err) => {
       console.log('error', err.message)
