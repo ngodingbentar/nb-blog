@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper h-screen bg-red-100">
+  <div class="wrapper h-screen">
     <RouterView />
   </div>
 </template>
