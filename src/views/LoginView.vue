@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import CardLogin from '@/components/login/CardLogin.vue'
+import CardLogin from '@/components/organisms/CardLogin.vue'
 </script>
 
 <style scoped lang="postcss">

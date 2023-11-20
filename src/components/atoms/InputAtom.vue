@@ -1,17 +1,12 @@
 <template>
-  <div>
-    <label :for="type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-      {{ label }}
-    </label>
-    <input
-      :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
-      :type="type"
-      :name="type"
-      class="form__input"
-      :placeholder="placeholder"
-    >
-  </div>
+  <input
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
+    :type="type"
+    :name="type"
+    :placeholder="placeholder"
+    class="form__input"
+  >
 </template>
 
 <script setup>
