@@ -21,7 +21,8 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: BlogViewVue,
+      beforeEnter: [checkIfLogged],
     },
     {
       path: '/filter',

@@ -7,8 +7,12 @@
             <InputMolecule label="Name" type="text" v-model="postForm.name" placeholder="Name..." />
             <InputMolecule label="Description" type="text" v-model="postForm.description" placeholder="Description..." />
             <div class="modal__footer">
-              <button @click="$emit('close')">close</button>
-              <button @click="submit()">{{ isNew ? 'Add' : 'Update' }}</button>
+              <div class="flex">
+                <ButtonAtom @click="$emit('close')" variant="secondary" label="Close" />
+              </div>
+              <div class="flex">
+                <ButtonAtom @click="submit" variant="primary" :label="isNew ? 'Add' : 'Update'" />
+              </div>
             </div>
           </div>
         </div>
@@ -20,6 +24,7 @@
 <script setup lang="ts">
 import { reactive, watch } from 'vue'
 import InputMolecule from '@/components/molecules/InputMolecule.vue'
+import ButtonAtom from '@/components/atoms/ButtonAtom.vue'
 
 const props = defineProps({
   show: {

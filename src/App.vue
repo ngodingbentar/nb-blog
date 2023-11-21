@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { RouterView, useRoute } from 'vue-router'
 import { useMainStore } from '@/stores/main'
-import NavbarComp from '@/components/NavbarComp.vue'
+import NavbarComp from '@/components/organisms/NavbarComp.vue'
 
 const route = useRoute()
 const mainStore      = useMainStore()

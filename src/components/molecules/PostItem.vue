@@ -1,21 +1,17 @@
 <template>
   <div class="post__item">
-    <div class="w-5/12 items-center flex m-auto text-ellipsis overflow-hidden ...">
+    <div class="w-5/12 truncate ...">
       {{ post.name }}
     </div>
-    <div class="w-5/12 px-1 ">
+    <div class="w-5/12 px-1 truncate ...">
       {{ post.description }}
     </div>
     <div class="w-2/12 px-1 justify-end items-end flex">
-      <!-- <button class="btn" @click="emit('show', { ...post, isNew: false })">
-        <i class="pi pi-pencil" style="font-size: 1rem; color: blue;"></i>
-      </button>
-      <button class="ml-4 btn" @click="emit('delete', post.id)">
-        <i class="pi pi-trash" style="font-size: 1rem; color: red;"></i>
-      </button> -->
-      <button @click="show = !show" class="cursor-pointer text-end justify-end ">
-        <i class="pi pi-bars" style="font-size: 1rem"></i>
-      </button>
+      <div class="h-full">
+        <button @click="show = !show" class="cursor-pointer text-end justify-end ">
+          <i class="pi pi-bars" style="font-size: 1rem"></i>
+        </button>
+      </div>
       <div class="relative">
         <div v-if="show" class="options absolute bg-white shadow-lg p-4 rounded-md right-0 mt-1 z-10">
           <button
@@ -72,7 +68,7 @@ function deletePost(id: string) {
 }
 
 .post__item {
-  @apply flex p-2 my-1 rounded-lg border;
+  @apply flex p-2 my-2 rounded-lg border;
 }
 
 .btn {

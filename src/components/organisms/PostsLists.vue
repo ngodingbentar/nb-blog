@@ -1,7 +1,9 @@
 <template>
   <div class="posts">
     <div>
-      <button @click="showModal({ isNew: true, id: '' })" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add post</button>
+      <div class="max-w-[100px]">
+        <ButtonAtom @click="showModal({ isNew: true, id: '' })" variant="primary" label="Add post" />
+      </div>
       <ModalPost :show="show" @close="show = false" @submit="submit" :isNew="isNew" :post="post" />
     </div>
     <div class="mt-8">
@@ -22,6 +24,7 @@ import { db } from '@/utils/fire'
 import PostItem from '@/components/molecules/PostItem.vue'
 import HeaderList from '@/components/molecules/HeaderList.vue'
 import ModalPost from '@/components/organisms/ModalPost.vue'
+import ButtonAtom from '@/components/atoms/ButtonAtom.vue'
 
 const show = ref(false)
 const isNew = ref(true)

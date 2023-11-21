@@ -121,11 +121,7 @@ const final = response.data.response.billdetails.filter((item) => Number(item.bo
 </script>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+.about {
+  @apply m-4;
 }
 </style>
