@@ -1,5 +1,5 @@
 <template>
-  <button type="button" @click="submit" class="btn__signin" :class="variant">{{ label }}</button>
+  <button type="button" @click="submit" class="btn__signin" :class="`btn__${label.toLowerCase()} ${variant}`">{{ label }}</button>
 </template>
 
 <script setup lang="ts">

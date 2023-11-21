@@ -1,5 +1,5 @@
-import { describe, it, expect, beforeEach } from 'vitest'
-import { reactive, ref } from "vue";
+import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { nextTick, ref } from "vue";
 import { setActivePinia, createPinia } from 'pinia'
 import { useMainStore } from '@/stores/main'
 
@@ -11,6 +11,8 @@ import HeaderMolecule from '@/components/molecules/HeaderMolecule.vue'
 import { doLogin } from '@/api/users';
 import { useRouter } from 'vue-router';
 
+vi.mock('vue-router')
+
 describe('CardLogin', () => {
   beforeEach(() => {
     // creates a fresh pinia and makes it active
@@ -18,7 +20,8 @@ describe('CardLogin', () => {
     // without having to pass it to it: `useStore(pinia)`
     setActivePinia(createPinia())
   })
-  it('renders properly', () => {
+
+  it('renders properly', async () => {
     const mainStore = useMainStore()
 
     const error = ref('')
@@ -50,14 +53,13 @@ describe('CardLogin', () => {
         const router = useRouter()
         async function submit() {
           const formLogin = ({
-            email: email.value,
-            password: password.value,
+            email: 'eve.holt@reqres.in',
+            password: '123456',
           })
           await doLogin(formLogin)
-            .then((res) => {
-              console.log('res.token', res.token)
-              localStorage.setItem('token', res.token)
-              mainStore.setToken(res.token)
+            .then(() => {
+              localStorage.setItem('token', '123456')
+              mainStore.setToken('123456')
               error.value = ''
               router.push('/blog')
             })
@@ -73,9 +75,10 @@ describe('CardLogin', () => {
       }
     })
     expect(wrapper.classes()).toContain('login__card')
-    wrapper.find('.input-email').setValue('test@gmail.com')
-    wrapper.find('.input-password').setValue('test@gmail.com')
+    wrapper.find('.input-email').setValue('eve.holt@reqres.in')
+    wrapper.find('.input-password').setValue('123456')
     // console.log('wrapper.html()', wrapper.html())
+    await nextTick()
     wrapper.find('button').trigger('click')
   })
 })

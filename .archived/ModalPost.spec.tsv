@@ -1,0 +1,65 @@
+import { describe, it, expect } from 'vitest'
+
+import { mount } from '@vue/test-utils'
+import ModalPost from '@/components/organisms/ModalPost.vue'
+import InputMolecule from '@/components/molecules/InputMolecule.vue'
+import ButtonAtom from '@/components/atoms/ButtonAtom.vue'
+import { reactive, ref } from 'vue'
+
+describe('ModalPost', () => {
+  it('renders properly', () => {
+    const wrapper = mount(ModalPost, {
+      props: {
+        show: true,
+        isNew: true,
+        post: {
+          name: 'test',
+          description: 'test'
+        }
+      },
+      components: {
+        InputMolecule,
+        ButtonAtom
+      },
+      template: `
+      <ModalPost>
+        <transition name="modal" mode="out-in">
+          <div v-if="show" class="modal__overlay">
+            <div class="modal__wrapper">
+              <div class="login__card">
+                <div class="login__form">
+                  <InputMolecule label="Name" type="text" v-model="postForm.name" placeholder="Name..." />
+                  <InputMolecule label="Description" type="text" v-model="postForm.description" placeholder="Description..." />
+                  <div class="modal__footer">
+                    <div class="flex">
+                      <ButtonAtom @click="$emit('close')" variant="secondary" label="Close" />
+                    </div>
+                    <div class="flex">
+                      <ButtonAtom @click="submit" variant="primary" :label="isNew ? 'Add' : 'Update'" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </transition>
+      </ModalPost>
+      `,
+      setup(props: { isNew: any }, {emit}: any){
+        async function submit() {
+          emit('submit', { ...postForm, isNew: props.isNew })
+        }
+        const postForm = reactive({
+          name: '',
+          description: '',
+          id: ''
+        })
+        return {show: true, postForm, submit}
+      }
+    })
+    // expect(wrapper.text()).toContain('Submit')
+    console.log(wrapper.html())
+    wrapper.find('button').trigger('click')
+    // expect(wrapper.classes()).toContain('modal__overlay')
+  })
+})
