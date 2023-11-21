@@ -5,7 +5,6 @@
 </template>
 
 <script setup lang="ts">
-import ErrorAtom from '@/components/atoms/ErrorAtom.vue'
 
 const props = defineProps({
   title: {

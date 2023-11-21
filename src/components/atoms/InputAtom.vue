@@ -15,10 +15,6 @@ function myEmit(event: Event) {
   emit('update:modelValue', (event.target as HTMLInputElement).value)
 }
 const props = defineProps({
-  label: {
-    type: String,
-    default: ''
-  },
   type: {
     type: String,
     default: 'text'
