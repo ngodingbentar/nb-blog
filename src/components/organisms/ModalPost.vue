@@ -72,7 +72,7 @@ async function submit() {
 }
 
 .login__card {
-  @apply w-full bg-gray-800 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:border-gray-700;
+  @apply w-full bg-gray-100 rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0 ;
 }
 
 .login__form {
@@ -80,6 +80,6 @@ async function submit() {
 }
 
 .modal__footer {
-  @apply flex text-white w-full justify-between mt-8;
+  @apply flex w-full justify-between mt-8;
 }
 </style>

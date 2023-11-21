@@ -17,7 +17,7 @@ import CardLogin from '@/components/organisms/CardLogin.vue'
 
 <style scoped lang="postcss">
 .wrapper {
-  @apply bg-slate-900 h-screen flex justify-center items-center;
+  @apply h-screen flex justify-center items-center;
 }
 
 .login {
@@ -29,6 +29,6 @@ import CardLogin from '@/components/organisms/CardLogin.vue'
 }
 
 .login__title {
-  @apply flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white;
+  @apply flex items-center mb-6 text-2xl font-semibold;
 }
 </style>

@@ -17,6 +17,6 @@ const props = defineProps({
 
 <style scoped lang="postcss">
 .form__title {
-  @apply text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white;
+  @apply text-xl font-bold leading-tight tracking-tight md:text-2xl;
 }
 </style>

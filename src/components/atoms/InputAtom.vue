@@ -40,6 +40,6 @@ const props = defineProps({
 
 <style lang="postcss" scoped>
 .form__input {
-  @apply bg-gray-700 text-white border border-gray-300  sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5   dark:focus:ring-blue-500 dark:focus:border-blue-500;
+  @apply bg-gray-200  border border-gray-300  sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-3;
 }
 </style>
