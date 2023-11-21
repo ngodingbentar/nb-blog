@@ -1,9 +1,9 @@
 <template>
   <div class="">
-    <div class="w-full flex justify-center">
-      Header
+    <div class="w-full flex justify-center text-xl font-bold ">
+      Ngodingbentar - Posts
     </div>
-    <div class="mt-4 px-4">
+    <div class="mt-4 px-4 md:px-8 lg:px-8">
       <PostsLists />
     </div>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex p-2 mx-2 my-1">
+  <div class="flex my-1">
     <div class="w-5/12 items-center flex m-auto text-ellipsis overflow-hidden ...">
       Name
     </div>

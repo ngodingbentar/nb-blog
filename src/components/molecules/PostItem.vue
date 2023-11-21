@@ -72,7 +72,7 @@ function deletePost(id: string) {
 }
 
 .post__item {
-  @apply flex p-2 mx-2 my-1 rounded-lg border;
+  @apply flex p-2 my-1 rounded-lg border;
 }
 
 .btn {

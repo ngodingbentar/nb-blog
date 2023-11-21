@@ -1,41 +1,19 @@
-<script setup lang="ts">
-defineProps<{
-  msg: string
-}>()
-</script>
-
 <template>
-  <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
-    </h3>
+  <div class="bg-gray-900 text-gray-100 py-3.5 px-6 shadow md:flex justify-between items-center">
+    <!-- <div class="flex items-center cursor-pointer">
+      <span class="text-green-500 text-xl mr-1">
+        x
+      </span>
+      <h1 class="text-xl">Ngodingbentar</h1>
+    </div> -->
+
+    <ul class="md:flex md:items-center">
+      <li>
+        <a href="#">Blog</a>
+      </li>
+      <li>
+        <a href="#">Filter</a>
+      </li>
+    </ul>
   </div>
 </template>
-
-<style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
-}
-
-h3 {
-  font-size: 1.2rem;
-}
-
-.greetings h1,
-.greetings h3 {
-  text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
-  }
-}
-</style>

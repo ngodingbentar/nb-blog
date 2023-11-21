@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import BlogViewVue from '@/views/BlogView.vue'
+import HelloWorld from '@/components/HelloWorld.vue'
 
 import { storeToRefs } from 'pinia'
 import { useMainStore } from "@/stores/main";
@@ -41,6 +42,11 @@ const router = createRouter({
       name: 'blog',
       component: BlogViewVue,
       beforeEnter: [checkIfLogged],
+    },
+    {
+      path: '/hello',
+      name: 'hello',
+      component: HelloWorld
     },
   ]
 })

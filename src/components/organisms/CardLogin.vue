@@ -20,7 +20,7 @@ import InputMolecule from '@/components/molecules/InputMolecule.vue'
 import ButtonAtom from '@/components/atoms/ButtonAtom.vue'
 import HeaderMolecule from '@/components/molecules/HeaderMolecule.vue'
 
-const mainStore      = useMainStore()
+const mainStore = useMainStore()
 const router = useRouter()
 const formLogin = reactive({
   email: 'eve.holt@reqres.in',

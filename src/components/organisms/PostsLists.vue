@@ -1,12 +1,14 @@
 <template>
   <div class="posts">
     <div>
-      <button @click="showModal({ isNew: true, id: '' })">show</button>
+      <button @click="showModal({ isNew: true, id: '' })" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add post</button>
       <ModalPost :show="show" @close="show = false" @submit="submit" :isNew="isNew" :post="post" />
     </div>
-    <HeaderList />
-    <div v-for="(item ,index) in posts" :key="index" class="">
-      <PostItem :post="item" @show="showModal" @delete="deletePost" />
+    <div class="mt-8">
+      <HeaderList />
+      <div v-for="(item ,index) in posts" :key="index" class="">
+        <PostItem :post="item" @show="showModal" @delete="deletePost" />
+      </div>
     </div>
   </div>
 </template>
