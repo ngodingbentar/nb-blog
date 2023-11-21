@@ -1,5 +1,5 @@
 <template>
-  <span>
+  <span class="form__wrapper">
     <HeaderAtom :title="title" />
     <ErrorAtom :error="error" />
   </span>

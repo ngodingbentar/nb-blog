@@ -3,8 +3,8 @@
     <div class="login__form">
       <HeaderMolecule title="Sign in to your account" :error="error" />
       <form class="space-y-4 md:space-y-6" action="#">
-        <InputMolecule label="Email" type="email" v-model="formLogin.email" placeholder="email@example.com" />
-        <InputMolecule label="Password" type="password" v-model="formLogin.password" placeholder="••••••••" />
+        <InputMolecule label="Email" type="email" v-model="email" placeholder="email@example.com" />
+        <InputMolecule label="Password" type="password" v-model="password" placeholder="••••••••" />
         <ButtonAtom @click="submit" label="Sign in" />
       </form>
     </div>
@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 import { doLogin } from '@/api/users'
 import { useRouter } from 'vue-router';
 import { useMainStore } from '@/stores/main'
@@ -22,14 +22,16 @@ import HeaderMolecule from '@/components/molecules/HeaderMolecule.vue'
 
 const mainStore = useMainStore()
 const router = useRouter()
-const formLogin = reactive({
-  email: 'eve.holt@reqres.in',
-  password: 'cityslicka',
-})
 
 const error = ref('')
+const email = ref('')
+const password = ref('')
 
 async function submit() {
+  const formLogin = ({
+    email: email.value,
+    password: password.value,
+  })
   await doLogin(formLogin)
     .then((res) => {
       localStorage.setItem('token', res.token)

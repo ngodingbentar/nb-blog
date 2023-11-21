@@ -8,20 +8,20 @@
     </div>
     <div class="w-2/12 px-1 justify-end items-end flex">
       <div class="h-full">
-        <button @click="show = !show" class="cursor-pointer text-end justify-end ">
+        <button @click="show = !show" class="action cursor-pointer text-end justify-end ">
           <i class="pi pi-bars" style="font-size: 1rem"></i>
         </button>
       </div>
       <div class="relative">
         <div v-if="show" class="options absolute bg-white shadow-lg p-4 rounded-md right-0 mt-1 z-10">
           <button
-            class="mb-1 pb-1 border-b-2"
+            class="delete mb-1 pb-1 border-b-2"
             @click="deletePost(post.id)">
             <i class="pi pi-trash" style="font-size: 1rem; color: red;"></i>
             <span class="ml-2">Delete</span>
           </button>
           <button
-            class="flex justify-center m-auto text-center items-center"
+            class="update flex justify-center m-auto text-center items-center"
             @click="updatePost({ ...post, isNew: false })">
             <i class="pi pi-pencil" style="font-size: 1rem; color: blue;"></i>
             <span class="ml-2">Update</span>
@@ -36,7 +36,7 @@
 import { ref } from 'vue'
 import type { IPost } from '@/types/posts'
 
-const props = defineProps({
+defineProps({
   post: {
     type: Object,
     default: () => ({

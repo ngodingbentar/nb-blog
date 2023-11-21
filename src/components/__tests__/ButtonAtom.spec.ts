@@ -8,5 +8,6 @@ describe('ButtonAtom', () => {
     const wrapper = mount(ButtonAtom, { props: { label: 'Submit', variant: 'primary' } })
     expect(wrapper.text()).toContain('Submit')
     expect(wrapper.classes()).toContain('primary')
+    wrapper.find('button').trigger('click')
   })
 })

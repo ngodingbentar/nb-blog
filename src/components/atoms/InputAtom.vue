@@ -6,6 +6,7 @@
     :name="type"
     :placeholder="placeholder"
     class="form__input"
+    :class="`input-${type}`"
   >
 </template>
 

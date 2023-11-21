@@ -20,7 +20,7 @@ export default defineConfig({
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
         name: 'Ngodingbentar PWA',
-        short_name: 'PWA',
+        short_name: 'NB PWA',
         description: 'PWA version of Ngodingbentar',
         theme_color: '#ffffff',
         icons: [
@@ -57,5 +57,11 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
     }
-  }
+  },
+  test: {
+    coverage: {
+      provider: 'istanbul',
+      reporter: ['text', 'json', 'html'],
+    },
+  },
 })

@@ -10,5 +10,7 @@ describe('InputAtom', () => {
     expect(wrapper.vm.disabled).toBe(false)
     expect(wrapper.vm.modelValue).toBe('test')
     expect(wrapper.vm.placeholder).toBe('input name')
+    expect(wrapper.classes()).toContain('form__input')
+    wrapper.find('input').setValue('test')
   })
 })
