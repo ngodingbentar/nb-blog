@@ -66,7 +66,6 @@ async function submit() {
   } else {
     await doRegister(formLogin)
       .then((res) => {
-        console.log('res', res)
         localStorage.setItem('token', res.token)
         mainStore.setToken(res.token)
         error.value = ''

@@ -1,5 +1,7 @@
 
 This template should help get you started developing with Vue 3 in Vite.
+## Node 18.18.0
+## Npm 9.8.1
 
 ## Recommended IDE Setup
 

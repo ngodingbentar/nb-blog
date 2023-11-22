@@ -34,12 +34,7 @@ function close () {
   mainStore.resetToast()
 }
 
-watch(toastStore, (value) => {
-  console.log('watch', value.title)
-})
-
 const variantClass = computed(() => {
-  console.log(toastStore)
   let style = ''
   const variant = toastStore.value.type.toLowerCase()
   if (variant === 'success')
