@@ -9,7 +9,7 @@ import { useMainStore } from "@/stores/main";
 function checkIfLogged() {
   const mainStore = useMainStore();
   const { token } = storeToRefs(mainStore)
-  if (!token.value) return '/login';
+  if (!token.value) return '/login'
 }
 
 const router = createRouter({
@@ -33,7 +33,16 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: LoginView
+      component: LoginView,
+      beforeEnter(to, from, next) {
+        const mainStore = useMainStore();
+        const { token } = storeToRefs(mainStore)
+        if (token.value) {
+          next('/blog')
+        } else {
+          next()
+        }
+      }
     },
     {
       path: '/blog',
