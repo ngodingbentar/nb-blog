@@ -20,12 +20,14 @@ import { ref, onMounted } from 'vue'
 import { getDocs, collection, addDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore'
 import type { IPost } from '@/types/posts'
 import { db } from '@/utils/fire'
+import { useMainStore } from '@/stores/main'
 
 import PostItem from '@/components/molecules/PostItem.vue'
 import HeaderList from '@/components/molecules/HeaderList.vue'
 import ModalPost from '@/components/organisms/ModalPost.vue'
 import ButtonAtom from '@/components/atoms/ButtonAtom.vue'
 
+const mainStore  = useMainStore()
 const show = ref(false)
 const isNew = ref(true)
 const posts = ref([] as IPost[])
@@ -42,6 +44,7 @@ async function init() {
   postCollection.forEach((doc) => {
     posts.value.push({...doc.data(), id: doc.id})
   })
+  mainStore.setLoading(false)
 }
 
 function showModal(data: IPost) {
@@ -51,6 +54,8 @@ function showModal(data: IPost) {
 }
 
 async function submit (payload: IPost) {
+  mainStore.setLoading(true)
+  show.value = false
   if(payload.isNew) {
     await addDoc(collection(db, 'posts'), {
       name: payload.name,
@@ -73,6 +78,7 @@ async function submit (payload: IPost) {
 }
 
 async function deletePost(id: string) {
+  mainStore.setLoading(true)
   await deleteDoc(doc(db, 'posts', id)).then(() => {
     init()
   })

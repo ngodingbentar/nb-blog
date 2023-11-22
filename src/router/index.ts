@@ -9,7 +9,6 @@ import { useMainStore } from "@/stores/main";
 function checkIfLogged() {
   const mainStore = useMainStore();
   const { token } = storeToRefs(mainStore)
-  console.log('checkIfLogged', token.value)
   if (!token.value) return '/login';
 }
 
