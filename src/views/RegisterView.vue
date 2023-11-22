@@ -3,9 +3,9 @@
     <div class="login">
       <div class="login__main">
         <div class="login__title">
-          Ngodingbentar    
+          Ngodingbentar
         </div>
-        <CardLogin mode="login" />
+        <CardLogin mode="register" />
       </div>
     </div>
   </div>

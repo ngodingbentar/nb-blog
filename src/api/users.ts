@@ -6,4 +6,9 @@ async function doLogin (payload: IUser) {
   return res.data
 }
 
-export { doLogin }
+async function doRegister (payload: IUser) {
+  const res = await axios.post('api/register', payload);
+  return res.data
+}
+
+export { doLogin, doRegister }

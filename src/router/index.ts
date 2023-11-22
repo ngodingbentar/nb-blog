@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/LoginView.vue'
 import BlogViewVue from '@/views/BlogView.vue'
+import RegisterView from '@/views/RegisterView.vue'
 
 import { storeToRefs } from 'pinia'
 import { useMainStore } from "@/stores/main";
@@ -43,6 +44,11 @@ const router = createRouter({
           next()
         }
       }
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: RegisterView,
     },
     {
       path: '/blog',

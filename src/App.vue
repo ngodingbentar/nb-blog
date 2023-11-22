@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper h-screen">
-    <NavbarComp v-if="route.path != '/login'" />
+    <NavbarComp v-if="route.path != '/login' && route.path != '/register'" />
     <LoaderComp :show="loading" />
     <ToasComp :show="isToast" />
     <RouterView />
