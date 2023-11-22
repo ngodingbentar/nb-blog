@@ -16,7 +16,6 @@ export const useMainStore = defineStore('main', () => {
   }
 
   function setLoading(payload: boolean) {
-    console.log('loading', payload)
     loading.value = payload
   }
 
