@@ -62,7 +62,10 @@ async function submit (payload: IPost) {
       description: payload.description
     }).then(() => {
       show.value = false
+      mainStore.showToast({type: 'success', title: 'Success', content: 'Post added successfully' })
       init()
+    }).catch(() => {
+      mainStore.showToast({type: 'error', title: 'Error', content: 'Something went wrong' })
     })
   } else {
     if (payload.id) {
@@ -71,7 +74,10 @@ async function submit (payload: IPost) {
         description: payload.description
       }).then(() => {
         show.value = false
+        mainStore.showToast({type: 'success', title: 'Success', content: 'Post updated successfully' })
         init()
+      }).catch(() => {
+        mainStore.showToast({type: 'error', title: 'Error', content: 'Something went wrong' })
       })
     }
   }
@@ -79,8 +85,12 @@ async function submit (payload: IPost) {
 
 async function deletePost(id: string) {
   mainStore.setLoading(true)
-  await deleteDoc(doc(db, 'posts', id)).then(() => {
+  await deleteDoc(doc(db, 'posts', id))
+  .then(() => {
+    mainStore.showToast({type: 'success', title: 'Success', content: 'Post deleted successfully' })
     init()
+  }).catch(() => {
+    mainStore.showToast({type: 'error', title: 'Error', content: 'Something went wrong' })
   })
 }
 </script>

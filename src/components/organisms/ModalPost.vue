@@ -63,7 +63,7 @@ async function submit() {
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .modal__overlay {
   @apply flex justify-center items-center fixed top-0 left-0 w-full h-full bg-black bg-opacity-50;
 }
@@ -77,7 +77,7 @@ async function submit() {
 }
 
 .login__card {
-  @apply w-full bg-gray-100 rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0 ;
+  @apply w-[90%] bg-gray-100 rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0 ;
 }
 
 .login__form {

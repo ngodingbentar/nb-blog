@@ -51,7 +51,7 @@ async function submit() {
 
 <style scoped lang="postcss">
 .login__card {
-  @apply w-full bg-gray-100 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 border border-gray-300;
+  @apply w-[90%] bg-gray-100 rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 border border-gray-300;
 }
 
 .login__form {

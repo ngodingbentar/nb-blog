@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="mt-4">
     <div class="w-full flex justify-center text-xl font-bold ">
       Ngodingbentar - Posts
     </div>
