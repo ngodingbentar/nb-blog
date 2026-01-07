@@ -1,14 +1,21 @@
 import type { IUser } from "@/types/user";
-import axios from "axios";
+import { auth } from "@/utils/fire";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
-async function doLogin (payload: IUser) {
-  const res = await axios.post('api/login', payload);
-  return res.data
+async function doLogin(payload: IUser) {
+  const userCredential = await signInWithEmailAndPassword(auth, payload.email, payload.password)
+  return {
+    token: await userCredential.user.getIdToken(),
+    user: userCredential.user
+  }
 }
 
-async function doRegister (payload: IUser) {
-  const res = await axios.post('api/register', payload);
-  return res.data
+async function doRegister(payload: IUser) {
+  const userCredential = await createUserWithEmailAndPassword(auth, payload.email, payload.password)
+  return {
+    token: await userCredential.user.getIdToken(),
+    user: userCredential.user
+  }
 }
 
 export { doLogin, doRegister }

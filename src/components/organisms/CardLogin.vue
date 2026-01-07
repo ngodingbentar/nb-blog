@@ -3,8 +3,8 @@
     <div class="login__form">
       <HeaderMolecule :title="mode === 'login' ? 'Sign in to your account' : 'Register for free'" :error="error" />
       <form class="space-y-4 md:space-y-6" action="#">
-        <InputMolecule label="Email" type="email" v-model="email" placeholder="email@example.com" />
-        <InputMolecule label="Password" type="password" v-model="password" placeholder="••••••••" />
+        <InputMolecule label="Email" type="email" v-model="email" placeholder="dewaqintoro@gmail.com" />
+        <InputMolecule label="Password (qwerty)" type="password" v-model="password" placeholder="••••••••" />
         <ButtonAtom @click="submit" :label="mode === 'login' ? 'Login' : 'Register'" />
       </form>
       <div>
@@ -40,15 +40,15 @@ const mainStore = useMainStore()
 const router = useRouter()
 
 const error = ref('')
-const email = ref('')
-const password = ref('')
+const email = ref('dewaqintoro@gmail.com')
+const password = ref('qwerty')
 
 async function submit() {
   const formLogin = ({
     email: email.value,
     password: password.value,
   })
-  if(props.mode === 'login') {
+  if (props.mode === 'login') {
     await doLogin(formLogin)
       .then((res) => {
         localStorage.setItem('token', res.token)

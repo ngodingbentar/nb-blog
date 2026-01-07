@@ -8,7 +8,7 @@
     </div>
     <div class="mt-8">
       <HeaderList />
-      <div v-for="(item ,index) in posts" :key="index" class="">
+      <div v-for="(item, index) in posts" :key="index" class="">
         <PostItem :post="item" @show="showModal" @delete="deletePost" />
       </div>
     </div>
@@ -27,14 +27,24 @@ import HeaderList from '@/components/molecules/HeaderList.vue'
 import ModalPost from '@/components/organisms/ModalPost.vue'
 import ButtonAtom from '@/components/atoms/ButtonAtom.vue'
 
-const mainStore  = useMainStore()
+const mainStore = useMainStore()
 const show = ref(false)
 const isNew = ref(true)
 const posts = ref([] as IPost[])
 const post = ref({} as IPost)
 
+import { auth } from '@/utils/fire'
+import { onAuthStateChanged } from 'firebase/auth'
+
 onMounted(() => {
-  init()
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      init()
+    } else {
+      mainStore.setLoading(false)
+      // Optional: redirect to login if needed
+    }
+  })
 })
 
 async function init() {
@@ -42,7 +52,7 @@ async function init() {
 
   let postCollection = await getDocs(collection(db, 'posts'))
   postCollection.forEach((doc) => {
-    posts.value.push({...doc.data(), id: doc.id})
+    posts.value.push({ ...doc.data(), id: doc.id })
   })
   mainStore.setLoading(false)
 }
@@ -53,19 +63,19 @@ function showModal(data: IPost) {
   post.value = data
 }
 
-async function submit (payload: IPost) {
+async function submit(payload: IPost) {
   mainStore.setLoading(true)
   show.value = false
-  if(payload.isNew) {
+  if (payload.isNew) {
     await addDoc(collection(db, 'posts'), {
       name: payload.name,
       description: payload.description
     }).then(() => {
       show.value = false
-      mainStore.showToast({type: 'success', title: 'Success', content: 'Post added successfully' })
+      mainStore.showToast({ type: 'success', title: 'Success', content: 'Post added successfully' })
       init()
     }).catch(() => {
-      mainStore.showToast({type: 'error', title: 'Error', content: 'Something went wrong' })
+      mainStore.showToast({ type: 'error', title: 'Error', content: 'Something went wrong' })
     })
   } else {
     if (payload.id) {
@@ -74,10 +84,10 @@ async function submit (payload: IPost) {
         description: payload.description
       }).then(() => {
         show.value = false
-        mainStore.showToast({type: 'success', title: 'Success', content: 'Post updated successfully' })
+        mainStore.showToast({ type: 'success', title: 'Success', content: 'Post updated successfully' })
         init()
       }).catch(() => {
-        mainStore.showToast({type: 'error', title: 'Error', content: 'Something went wrong' })
+        mainStore.showToast({ type: 'error', title: 'Error', content: 'Something went wrong' })
       })
     }
   }
@@ -86,12 +96,12 @@ async function submit (payload: IPost) {
 async function deletePost(id: string) {
   mainStore.setLoading(true)
   await deleteDoc(doc(db, 'posts', id))
-  .then(() => {
-    mainStore.showToast({type: 'success', title: 'Success', content: 'Post deleted successfully' })
-    init()
-  }).catch(() => {
-    mainStore.showToast({type: 'error', title: 'Error', content: 'Something went wrong' })
-  })
+    .then(() => {
+      mainStore.showToast({ type: 'success', title: 'Success', content: 'Post deleted successfully' })
+      init()
+    }).catch(() => {
+      mainStore.showToast({ type: 'error', title: 'Error', content: 'Something went wrong' })
+    })
 }
 </script>
 

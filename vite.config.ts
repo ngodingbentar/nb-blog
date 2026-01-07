@@ -52,7 +52,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: env.VITE_BASE_URL,
+        target: env.VITE_BASE_URL.replace(/\/$/, ''),
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
